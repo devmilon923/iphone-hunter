@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Store</title>
+    <!-- Google Font With Roboto Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- DasyUi -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/020e5c9f96.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom Css -->
+    <style>
+      body {
+        font-family: "Roboto", system-ui;
+      }
+      /* Custom DasyUi container */
+
+      @media (max-width: 640px) {
+        .container {
+          width: 90% !important;
+        }
+      }
+      @media (min-width: 640px) {
+        .container {
+          max-width: 396px !important;
+        }
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 495px !important;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 752px !important;
+        }
+      }
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 985px !important;
+        }
+      }
+      @media (min-width: 1536px) {
+        .container {
+          max-width: 1140px !important;
+        }
+      }
+      /* Spinner styles */
+      #spinner {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      /* Spinner animation */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <div class="max-w-2xl mx-auto mt-5">
+      <div class="flex items-center">
+        <input
+          id="search-box"
+          type="text"
+          placeholder="Search..."
+          class="w-full px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          onclick="handleSearch()"
+          type="submit"
+          class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+    <!-- all phone show in this container -->
+    <!-- <section class="container"> -->
+    <div
+      id="phones-container"
+      class="phones-container flex flex-col justify-around items-center flex-wrap"
+    >
+      <!-- here we showed our spinner -->
+      <div id="spinner"></div>
+      <!-- here we make our ophone card  -->
+      <div
+        id="phone-display"
+        class="grid gap-5 mt-12 container grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+      ></div>
+    </div>
+    <!-- </section> -->
+
+    <div class="text-center" id="show-all">
+      <button onclick="handleShowAll()" class="btn text-white bg-red-500 mt-5">
+        Show All
+      </button>
+    </div>
+
+    <!-- show modal here  -->
+
+    <!-- Open the modal using ID.showModal() method -->
+
+    <div id="modal-container">
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn hidden" id="modalBtn" onclick="my_modal_5.showModal()">open modal</button> -->
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <h3 class="text-lg font-bold pb-4" id="name"></h3>
+          <hr>
+          <hr>
+         <div id="modalContent"></div>
+          <!-- <p class="pt-2"><b>Storage: </b> <span>128GB/256GB/1TB storage, no card slot</span></p> -->
+          
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </div>
+
+  
+
+    <script src="./index.js"></script>
+  </body>
+</html>
